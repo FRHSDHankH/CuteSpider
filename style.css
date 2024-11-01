@@ -1,72 +1,86 @@
+/* Sets the background color for the whole HTML page */
 html {
   background: #333;
 }
 
+/* Styles the spider's web */
 .spider .spiderweb {
-  width: 2px;
-  height: 200px;
-  margin-left: 49px;
-  background: rgba(255, 255, 255, 0.7);
+  width: 2px; /* Narrow width for the web line */
+  height: 200px; /* Length of the web */
+  margin-left: 49px; /* Centers the web under the spider */
+  background: rgba(255, 255, 255, 0.7); /* Semi-transparent white color */
 }
 
+/* Styles the main body of the spider */
 .spider .body {
-  width: 100px;
-  height: 80px;
-  background: #000;
+  width: 100px; /* Width of the spider's body */
+  height: 80px; /* Height of the spider's body */
+  background: #000; /* Black color */
   position: relative;
-  border-radius: 50%;
+  border-radius: 50%; /* Makes the body circular */
 }
 
+/* Styles the spider's eyes */
 .spider .body .eye {
-  width: 33px;
-  height: 33px;
+  width: 33px; /* Width of each eye */
+  height: 33px; /* Height of each eye */
   position: absolute;
-  bottom: 20px;
-  background: #fff;
-  border-radius: 50%;
+  bottom: 20px; /* Positioning of eyes within the body */
+  background: black; /* Eye color */
+  border-radius: 50%; /* Makes the eye circular */
+  transition: 0.2s; /* Smooth transition for eye color changes */
 }
 
+/* Positions the left eye */
 .spider .body .eye.left {
   left: 15px;
 }
 
+/* Positions the right eye */
 .spider .body .eye.right {
   right: 15px;
 }
 
+/* Styles the pupil of the eyes */
 .spider .body .eye:after {
-  background: #000;
-  width: 7px;
-  height: 7px;
+  background: white; /* White color for the pupil */
+  width: 7px; /* Width of the pupil */
+  height: 7px; /* Height of the pupil */
   content: "";
   display: block;
-  margin: 55%;
-  border-radius: 50%;
-  animation: look 8s infinite;
+  margin: 55%; /* Centers the pupil within the eye */
+  border-radius: 50%; /* Makes the pupil circular */
+  animation: look 8s infinite; /* Animation for the pupils to look around */
 }
 
+/* Styles the spider's legs */
 .spider .legs .leg {
-  width: 80px;
-  height: 40px;
-  margin-top: -20px;
+  width: 80px; /* Length of the leg */
+  height: 40px; /* Height of the leg */
+  margin-top: -20px; /* Adjusts position relative to the spider's body */
   border: 5px solid transparent;
-  border-top-color: #000;
-  border-radius: 40px 40px 0 0;
+  border-top-color: #000; /* Black color for the top part of the leg */
+  border-radius: 40px 40px 0 0; /* Curves the top of the leg */
 }
 
+/* Positions the legs */
 .spider .legs {
   position: absolute;
-  bottom: -10%;
-  z-index: -1;
+  bottom: -10%; /* Places legs slightly below the body */
+  z-index: -1; /* Places legs behind the body */
 }
 
+/* Positions left set of legs */
 .spider .legs.left {
   left: -70%;
 }
+
+/* Positions right set of legs */
 .spider .legs.right {
   right: -60%;
 }
 
+/* Rotates and positions individual legs on the left */
 .legs.left .leg:nth-child(1) {
   transform: rotate(10deg);
   margin-left: 10px;
@@ -76,6 +90,7 @@ html {
   margin-left: -10px;
 }
 
+/* Rotates and positions second set of legs on the left */
 .legs.left .leg:nth-child(2) {
   transform: rotate(-20deg);
   margin-left: 20px;
@@ -85,6 +100,7 @@ html {
   margin-left: -20px;
 }
 
+/* Rotates and positions third set of legs on the left */
 .legs.left .leg:nth-child(3) {
   transform: rotate(-50deg);
   margin-left: 30px;
@@ -96,71 +112,75 @@ html {
   margin-bottom: 10px;
 }
 
+/* Animation for the pupils to "look" back and forth */
 @keyframes look {
-  0%,
-  40%,
-  100% {
+  0%, 40%, 100% {
     transform: translateX(0);
   }
-
-  45%,
-  95% {
+  45%, 95% {
     transform: translateX(-110%);
   }
 }
 
+/* Animation for the spider to "swing" up and down */
 @keyframes swing {
-  0%,
-  100% {
+  0%, 100% {
     transform: translateY(0);
   }
-
   50% {
     transform: translateY(-20px);
   }
 }
 
+/* Styles the spider's main container with animation */
 .spider {
   position: absolute;
   display: inline-block;
-  top: 0;
-  left: 30%;
-  animation: swing 2s infinite;
-  transform-origin: top;
-  transition: 1s ease-in-out, translate 0.5s, scale 0.5s;
+  top: 0; /* Positioning the spider near the top */
+  left: 30%; /* Centered horizontally */
+  animation: swing 2s infinite; /* Swing animation */
+  transform-origin: top; /* Defines pivot point for swinging */
+  transition: 1s ease-in-out, translate 0.5s, scale 0.5s; /* Smooth transition for movements */
   text-align: center;
 }
 
+/* Styles the spider and its elements on click (active state) */
 .spider:active {
-  translate: 20vw;
-  scale: 2.5;
+  translate: 20vw; /* Moves spider horizontally */
+  scale: 2.5; /* Increases spider size */
 }
 
+/* Changes left eye color on click */
 .spider:active .body .eye.left {
-  background-color: black;
+  background-color: white;
 }
 
+/* Changes right eye color on click */
 .spider:active .body .eye.right {
-  background-color: black;
+  background-color: white;
 }
 
+/* Changes pupil color on click */
 .spider:active .body .eye:after {
-  background: white;
+  background: black;
 }
 
+/* Changes web color on click */
 .spider:active .spiderweb {
   background-color: red;
 }
 
+/* Styles for the "boo" text */
 .boo {
-  visibility: hidden;
-  opacity: 0;
+  visibility: hidden; /* Initially hidden */
+  opacity: 0; /* Initially transparent */
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   color: white;
   font-size: 1vw;
 }
 
+/* Shows "boo" text on click */
 .spider:active .boo {
-  opacity: 1;
+  opacity: 1; /* Makes text visible */
   visibility: visible;
 }
